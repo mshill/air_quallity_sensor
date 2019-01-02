@@ -17,13 +17,15 @@ sources:
 filesystem:
   - fs
 
-
 config_schema:
   - ["i2c.enable", true]
   - ["board.led1.pin", 2]
   - ["app", "o", {title: "My app custom settings"}]
   - ["app.pin", "i", 25, {title: "GPIO pin a sensor is attached to"}]
-
+  - ['mqtt.enable', true]
+  - ["mqtt.server", "192.168.93.54:1883"]
+  - ['mqtt1.enable', true]
+  - ["mqtt1.server", "dbstore:1883"]
 
 libs:
   - origin: https://github.com/mongoose-os-libs/boards
@@ -35,6 +37,7 @@ libs:
   - origin: https://github.com/mongoose-os-libs/mjs  # <-- Add this line!
   - origin: https://github.com/mongoose-os-libs/mq135
   - origin: https://github.com/mongoose-os-libs/sensor-utils
+  - origin: https://github.com/mongoose-os-libs/mqtt
   # - origin: https://github.com/mongoose-os-libs/neopixel
 
 

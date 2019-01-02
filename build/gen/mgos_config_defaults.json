@@ -25,6 +25,26 @@
  "mjs": {
   "generate_jsc": true
  },
+ "mqtt": {
+  "enable": true,
+  "server": "192.168.93.54:1883",
+  "reconnect_timeout_min": 2.0,
+  "reconnect_timeout_max": 60.0,
+  "clean_session": true,
+  "keep_alive": 60,
+  "max_qos": 2,
+  "recv_mbuf_limit": 3072
+ },
+ "mqtt1": {
+  "enable": true,
+  "server": "dbstore:1883",
+  "reconnect_timeout_min": 2.0,
+  "reconnect_timeout_max": 60.0,
+  "clean_session": true,
+  "keep_alive": 60,
+  "max_qos": 2,
+  "recv_mbuf_limit": 3072
+ },
  "rpc": {
   "enable": true,
   "max_frame_size": 4096,

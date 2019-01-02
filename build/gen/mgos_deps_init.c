@@ -20,6 +20,7 @@ extern bool mgos_dht_init(void);
 extern bool mgos_mbedtls_init(void);
 extern bool mgos_mjs_init(void);
 extern bool mgos_mq135_init(void);
+extern bool mgos_mqtt_init(void);
 extern bool mgos_rpc_common_init(void);
 extern bool mgos_rpc_service_config_init(void);
 extern bool mgos_rpc_service_fs_init(void);
@@ -67,6 +68,9 @@ static const struct lib_descr {
 
     // "mq135". deps: [ "adc" "core" "mjs" ]
     {.title = "mq135", .init = mgos_mq135_init},
+
+    // "mqtt". deps: [ "core" ]
+    {.title = "mqtt", .init = mgos_mqtt_init},
 
     // "rpc-common". deps: [ "core" "mongoose" ]
     {.title = "rpc-common", .init = mgos_rpc_common_init},

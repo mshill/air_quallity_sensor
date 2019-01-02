@@ -109,6 +109,10 @@ bool  mgos_i2c_write_reg_w(void *, int, int, int);
 bool  mgos_is_inbound(void *);
 void  mgos_log(char *, int, int, char *);
 void * mgos_mjs_get_config();
+void  mgos_mqtt_add_global_handler(void (*)(void *, int, void *, void *), void *);
+bool  mgos_mqtt_global_is_connected();
+int  mgos_mqtt_pub(char *, void *, int, int, bool);
+void  mgos_mqtt_sub(char *, void (*)(void *, void *, int, void *, int, void *), void *);
 void * mgos_rpc_add_handler(void *, void (*)(void *, char *, char *, void *), void *);
 bool  mgos_rpc_call(char *, char *, char *, void (*)(char *, int, char *, void *), void *);
 bool  mgos_rpc_send_response(void *, char *);
@@ -251,6 +255,10 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"mgos_is_inbound", mgos_is_inbound},
   {"mgos_log", mgos_log},
   {"mgos_mjs_get_config", mgos_mjs_get_config},
+  {"mgos_mqtt_add_global_handler", mgos_mqtt_add_global_handler},
+  {"mgos_mqtt_global_is_connected", mgos_mqtt_global_is_connected},
+  {"mgos_mqtt_pub", mgos_mqtt_pub},
+  {"mgos_mqtt_sub", mgos_mqtt_sub},
   {"mgos_rpc_add_handler", mgos_rpc_add_handler},
   {"mgos_rpc_call", mgos_rpc_call},
   {"mgos_rpc_send_response", mgos_rpc_send_response},
@@ -292,4 +300,4 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"strdup", strdup},
   {"temprature_sens_read", temprature_sens_read},
 };
-const int ffi_exports_cnt = 140;
+const int ffi_exports_cnt = 144;
